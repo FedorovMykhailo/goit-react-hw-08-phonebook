@@ -2,9 +2,12 @@ import {  useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getContacts } from "api/services";
 // import { nanoid } from "nanoid"
-import ContactForm from "./ContactForm/ContactForm"
-import Filter from "./Filter/Filter"
-import ContactList from "./ContactList/ContactList"
+
+import { Routes, Route } from "react-router-dom"
+import { Contacts } from "pages/Contacts";
+import { LogIn } from "pages/Login";
+import { Register } from "pages/Register";
+import { CommonLayout } from "./CommonLayout";
 
 const App = () => {
 const dispatch = useDispatch()
@@ -27,12 +30,16 @@ const dispatch = useDispatch()
         margin: '0',
         textAlign: 'left'  
       }}>
-        <div>
-        <h1>Phonebook</h1>
-        <ContactForm/>
-        <h2>Contacts</h2>
-        <Filter  />
-        <ContactList/>
+      <div>
+        <Routes>
+          <Route path="/" element={<CommonLayout />}>
+            <Route index element={<LogIn/>} />
+            <Route path="register" element={<Register />} />
+            <Route path="login" element={<LogIn/>} />
+            <Route path="contacts" element={<Contacts />} />
+          </Route>
+        </Routes>
+       
         </div>
     </div>
   )

@@ -14,7 +14,7 @@ const options = {
 
 export const getContacts = createAsyncThunk("contacts/getContacts", async (_, thunkAPI) => {
     try {
-        const response = await axios.get("https://64ecea0af9b2b70f2bfb1fc5.mockapi.io/contacts", options);
+        const response = await axios.get("https://connections-api.herokuapp.com/contacts", options);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -23,7 +23,7 @@ export const getContacts = createAsyncThunk("contacts/getContacts", async (_, th
 
     export const addContact = createAsyncThunk("contacts/addContact",async (data, thunkAPI) => {
     try {
-      const response = await axios.post("https://64ecea0af9b2b70f2bfb1fc5.mockapi.io/contacts", data);
+      const response = await axios.post("https://connections-api.herokuapp.com/contacts", data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
