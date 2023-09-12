@@ -5,13 +5,13 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 
 export const LogInForm = () => {
-    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
     
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
-            case "name": setName(value)       
+            case "email": setEmail(value)       
                 break;
             case "password": setPassword(value)       
                 break;
@@ -30,10 +30,10 @@ export const LogInForm = () => {
 
 
     return <FormControl  >
-        <FormLabel>Name</FormLabel>
-        <Input type="text" name="name" onChange={handleChange}></Input>
+        <FormLabel>Email</FormLabel>
+        <Input type="text" name="email" onChange={handleChange}></Input>
         <FormLabel>Password</FormLabel>
         <Input type="password" name ="password" onChange={handleChange}></Input>  
-        <Button type="submit" onClick={()=>dispatch(logIn({name: name, password: password}))}>Login</Button>
+        <Button type="submit" onClick={()=>dispatch(logIn({email: email, password: password}))}>Login</Button>
     </FormControl>
 }

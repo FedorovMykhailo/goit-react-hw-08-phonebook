@@ -23,9 +23,9 @@ const ContactList = () => {
         {isLoading && <h2> Loading...</h2 >}
          {error && <h2> {error}</h2 >}
         <ul className={css.contactList}>
-            {filteredContacts.map(({ id, name, phone }) =>
+            {filteredContacts.map(({ id, name, number }) =>
             <li key={id} className={css.contactListItem}>
-                {name}: {phone}
+                {name}: {number}
                     <button className={css.contactListButton} type="button" onClick={() => { handleContactDelete(id) }}>Delete</button>
             </li>)}
             

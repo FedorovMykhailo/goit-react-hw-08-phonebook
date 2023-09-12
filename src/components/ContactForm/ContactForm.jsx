@@ -15,7 +15,7 @@ const FormComponent = () => {
         const phone = evt.currentTarget.elements.number.value;
         if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase()))
             return alert(`${name.toLowerCase()} is already in contacts`)
-        dispatch(addContact({ "name": name, "phone": phone }))
+        dispatch(addContact({ "name": name, "number": phone }))
         evt.currentTarget.reset()
     } 
 

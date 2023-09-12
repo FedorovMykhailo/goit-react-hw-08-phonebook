@@ -8,14 +8,16 @@ import { Contacts } from "pages/Contacts";
 import { LogIn } from "pages/Login";
 import { Register } from "pages/Register";
 import { CommonLayout } from "./CommonLayout";
+import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
+import { PublicRoute } from "./PublicRoute/PublicRoute";
 
 const App = () => {
 const dispatch = useDispatch()
   // const [contacts, setContacts] = useState(getDataFromLocal())
   // const [filter, setFilter] = useState("")
-  useEffect(() => {
-    dispatch(getContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getContacts());
+  // }, [dispatch]);
 
   return (
     <div
@@ -34,9 +36,9 @@ const dispatch = useDispatch()
         <Routes>
           <Route path="/" element={<CommonLayout />}>
             <Route index element={<LogIn/>} />
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<LogIn/>} />
-            <Route path="contacts" element={<Contacts />} />
+            <Route path="register" element={<PublicRoute to="register"/>} />
+            <Route path="login" element={<PublicRoute to="login"/>} />
+            <Route path="contacts" element={<PrivateRoute/>} />
           </Route>
         </Routes>
        

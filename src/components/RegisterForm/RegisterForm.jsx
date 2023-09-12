@@ -28,6 +28,6 @@ export const RegisterForm = () => {
         <Input type="password" name ="password" onChange={handleChange}></Input>  
         <FormLabel>Email</FormLabel>
         <Input type="email" name="email" onChange={handleChange}></Input>
-        <Button type="submit" onClick={() => dispatch(register({ name: name, email: email, password: password  }))}>Login</Button>
+        <Button type="submit" onClick={() => dispatch(register({ name: name, email: email, password: password  }))}>Register</Button>
     </>
 }

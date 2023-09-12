@@ -8,8 +8,8 @@ export const CommonLayout = () =>
 {
     const auth = useSelector(selectAuth)
     return <>
-        {!auth ? <AuthMenu/>:""}
-        <UserMenu/>
+        {!auth ? <AuthMenu/>:<UserMenu/>}
+        
         <Outlet />
     </>
 }

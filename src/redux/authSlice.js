@@ -24,6 +24,9 @@ const contactsSlice = createSlice({
         [logIn.fulfilled](state,action) {
             state.isLoading = false;
             state.error = null;
+            state.user = action.payload.user;
+            state.token = action.payload.token;
+            state.auth = true;
             console.log(action.payload);
             //state.auth = action.payload;
         },
@@ -51,9 +54,8 @@ const contactsSlice = createSlice({
             state.isLoading = false;
             state.error = null;
             state.auth = false;
-        
-           
-            
+            state.token = "";
+            state.user = { name:'',email:''}
         }
     }
     
