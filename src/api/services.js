@@ -33,8 +33,8 @@ export const getContacts = createAsyncThunk("contacts/getContacts", async (_, th
   export const deleteContact = createAsyncThunk("contacts/deleteContact",async (id, thunkAPI) => {
       try {
         console.log(id);
-      const response = await axios.delete(`https://64ecea0af9b2b70f2bfb1fc5.mockapi.io/contacts/${id}`);
-      return response.data.id;
+      const response = await axios.delete(`https://connections-api.herokuapp.com/contacts/${id}`);
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

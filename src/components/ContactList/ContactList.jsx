@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 // import { getContacts } from "api/services";
 import { deleteContact } from "api/services";
 import {  selectError, selectFilteredContacts,selectIsLoading } from "redux/selectors";
-import css from "../ContactList/ContactList.module.css"
+import { Button, List, ListItem } from "@chakra-ui/react";
+// import css from "../ContactList/ContactList.module.css"
 // import PropTypes from "prop-types";
 
 const ContactList = () => {
@@ -22,14 +23,14 @@ const ContactList = () => {
     return (<>
         {isLoading && <h2> Loading...</h2 >}
          {error && <h2> {error}</h2 >}
-        <ul className={css.contactList}>
+        <List display='flex' gap ='2' flexDirection='column' >
             {filteredContacts.map(({ id, name, number }) =>
-            <li key={id} className={css.contactListItem}>
+            <ListItem key={id} minWidth='320px' display='flex' justifyContent='space-between' gap ='2' alignItems='center'>
                 {name}: {number}
-                    <button className={css.contactListButton} type="button" onClick={() => { handleContactDelete(id) }}>Delete</button>
-            </li>)}
+                    <Button  type="button" onClick={() => { handleContactDelete(id) }}>Delete</Button>
+            </ListItem>)}
             
-        </ul></>
+        </List></>
     )
 }
 

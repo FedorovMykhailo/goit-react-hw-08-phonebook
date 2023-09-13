@@ -1,7 +1,8 @@
 
+import { Input } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { setFilterValue } from "redux/filterSlice";
-import css from "../Filter/Filter.module.css"
+// import css from "../Filter/Filter.module.css"
 // import PropTypes from "prop-types";
 
 const Filter = () => {    
@@ -14,7 +15,7 @@ const Filter = () => {
     }
         return (
             <div>
-                <input className={css.formInput}     
+                <Input     
                 type="text"
                 name="filter"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

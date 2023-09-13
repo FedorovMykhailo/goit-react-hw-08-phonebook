@@ -1,13 +1,21 @@
 import ContactForm from "../components/ContactForm/ContactForm"
 import Filter from "../components//Filter/Filter"
 import ContactList from "../components/ContactList/ContactList"
+import {  useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getContacts } from "api/services";
+import { Text } from "@chakra-ui/react";
 
 export const Contacts = () =>
 {
+const dispatch = useDispatch()
+     useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
     return <>
-        <h1>Phonebook</h1>
+        <Text>Phonebook</Text>
         <ContactForm/>
-        <h2>Contacts</h2>
+        <Text>Contacts</Text>
         <Filter  />
         <ContactList />
      </>

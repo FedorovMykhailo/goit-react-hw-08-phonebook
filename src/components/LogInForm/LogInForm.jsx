@@ -15,6 +15,7 @@ export const LogInForm = () => {
                 break;
             case "password": setPassword(value)       
                 break;
+            default: break;
         }
         // console.log(name);
         // setName(value)
@@ -29,7 +30,7 @@ export const LogInForm = () => {
 }
 
 
-    return <FormControl  >
+    return <FormControl>
         <FormLabel>Email</FormLabel>
         <Input type="text" name="email" onChange={handleChange}></Input>
         <FormLabel>Password</FormLabel>
