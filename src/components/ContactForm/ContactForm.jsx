@@ -14,16 +14,10 @@ const FormComponent = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
    
-    const handleFormSubmit = (evt) => {
-        //evt.preventDefault()
-        // const name = evt.currentTarget.elements.name.value;
-        // const phone = evt.currentTarget.elements.number.value;
-        //         const name = 'fedorov'
-        // const phone = '12345';
+    const handleFormSubmit = () => {
         if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase()))
             return alert(`${name.toLowerCase()} is already in contacts`)
         dispatch(addContact({ "name": name, "number": phone }))
-        // evt.currentTarget.reset()
     } 
 
     return (
