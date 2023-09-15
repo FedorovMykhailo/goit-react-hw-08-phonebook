@@ -8,8 +8,8 @@ import { useState } from "react";
 
 const FormComponent = () => {  
     
-    const [name, setName] = useState();
-    const [phone,setPhone] = useState()
+    const [name, setName] = useState('');
+    const [phone,setPhone] = useState('')
     
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
@@ -18,13 +18,16 @@ const FormComponent = () => {
         if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase()))
             return alert(`${name.toLowerCase()} is already in contacts`)
         dispatch(addContact({ "name": name, "number": phone }))
+        setName('')
+        setPhone('')
     } 
 
     return (
         <FormControl border='1px solid blue' padding='20px' display='flex' gap ='5' flexDirection='column' alignItems='flex-start' >
             <Flex  gap ='2' width='100%' alignItems='center' >
                 <FormLabel id="name" width='30%'>Name</FormLabel>
-                <Input onChange={(evt) => setName(evt.target.value)}  
+                <Input onChange={(evt) => setName(evt.target.value)}
+                value={name}    
                 flexGrow='0'    
                 type="text"
                 name="name"
@@ -34,7 +37,8 @@ const FormComponent = () => {
             </Flex>
              <Flex  gap ='2' width='100%' alignItems='center' >
                 <FormLabel id="number" width='30%'>Number</FormLabel>
-                <Input onChange={(evt) => setPhone(evt.target.value)}             
+                <Input onChange={(evt) => setPhone(evt.target.value)} 
+                value={phone}      
                 type="tel"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
