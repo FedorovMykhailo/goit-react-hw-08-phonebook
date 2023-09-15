@@ -17,6 +17,11 @@ export const selectIsLoading = state => state.contacts.isLoading
 
 export const selectError = state => state.contacts.error
 
+export const selectLoginError = state => state.auth.error
+
 export const selectAuth = state => state.auth.auth
-export const selectUser = state =>state.auth.user.name
+
+export const selectToken = state => state.auth.token
+
+export const selectUser = state => state.auth.user.name
 

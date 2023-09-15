@@ -1,10 +1,13 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import { CommonLayout } from "./CommonLayout";
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 import { PublicRoute } from "./PublicRoute/PublicRoute";
 import { Welcome } from "pages/Welcome";
 
+
 const App = () => {
+
+ 
 
   return (
     <div
@@ -25,7 +28,8 @@ const App = () => {
             <Route index element={<Welcome/>} />
             <Route path="register" element={<PublicRoute to="register"/>} />
             <Route path="login" element={<PublicRoute to="login"/>} />
-            <Route path="contacts" element={<PrivateRoute/>} />
+            <Route path="contacts" element={<PrivateRoute />} />
+            <Route path="*" element={<Navigate to="login" replace />} />
           </Route>
         </Routes>
        

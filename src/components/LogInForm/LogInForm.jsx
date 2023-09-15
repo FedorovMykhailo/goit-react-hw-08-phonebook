@@ -4,10 +4,12 @@ import { logIn } from "api/auth"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
+
 export const LogInForm = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
+
     
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
@@ -31,10 +33,11 @@ export const LogInForm = () => {
 
 
     return <FormControl>
+        
         <FormLabel>Email</FormLabel>
         <Input type="text" name="email" onChange={handleChange}></Input>
         <FormLabel>Password</FormLabel>
         <Input type="password" name ="password" onChange={handleChange}></Input>  
-        <Button type="submit" onClick={()=>dispatch(logIn({email: email, password: password}))}>Login</Button>
+        <Button type="submit" onClick={() => dispatch(logIn({ email: email, password: password }))}>Login</Button>
     </FormControl>
 }

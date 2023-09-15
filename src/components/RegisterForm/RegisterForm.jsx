@@ -1,13 +1,15 @@
-import { Button, FormControl, Input } from "@chakra-ui/react"
+import {Button, FormControl, Input } from "@chakra-ui/react"
 import { FormLabel } from "@chakra-ui/react"
 import { register } from "api/auth"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
+
 export const RegisterForm = () => {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+
 
     const dispatch = useDispatch()
     
@@ -28,6 +30,6 @@ export const RegisterForm = () => {
         <Input type="password" name ="password" onChange={handleChange}></Input>  
         <FormLabel>Email</FormLabel>
         <Input type="email" name="email" onChange={handleChange}></Input>
-        <Button type="submit" onClick={() => dispatch(register({ name: name, email: email, password: password  }))}>Register</Button>
+        <Button type="submit" onClick={() => dispatch(register({ name: name, email: email, password: password }))}>Register</Button>
     </FormControl>
 }
